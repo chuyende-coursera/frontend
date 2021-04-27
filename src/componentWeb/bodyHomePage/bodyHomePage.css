@@ -1,0 +1,57 @@
+.banner {
+  background-image: url(/homepage/img/girl.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-bottom: 50px;
+  height: auto;
+}
+.collaborate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+.archieve {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+.outcome {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #d6edf6;
+}
+.separate {
+  background-color: #2a73cc;
+  height: 2px;
+  margin-bottom: 15px;
+  margin-top: 14px;
+  width: 69px;
+}
+.fromcommunity {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.worldclass {
+  padding-top: 40px;
+  position: relative;
+}
+.worldclass h1 {
+  text-align: center;
+}
+.toward {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #fcf4cf;
+}
+ul {
+  list-style-type: none;
+}
+.last {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.foot h4 {
+  margin-left: 40px;
+}
