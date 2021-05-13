@@ -1,0 +1,20 @@
+.logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 28px 16px 0;
+  float: left;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+.logo {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.react-player {
+  margin: auto;
+  width: 1280px !important;
+  height: 720px !important;
+}
