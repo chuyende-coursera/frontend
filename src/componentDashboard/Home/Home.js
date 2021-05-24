@@ -5,10 +5,7 @@ const { Content } = Layout;
 function ContentDash() {
   return (
     <Content style={{ margin: "0 16px" }}>
-      <div
-        className="site-layout-background"
-        style={{ padding: 24, minHeight: 360 }}
-      >
+      <div className="site-layout-background text-center">
         HomePage Dashboard
       </div>
     </Content>

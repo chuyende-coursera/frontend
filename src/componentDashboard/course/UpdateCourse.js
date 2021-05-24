@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "antd/dist/antd.css";
 import viMessage from "../../locales/vi";
-import { Redirect, Link } from "react-router-dom";
-import * as actionTypes from "../../actions/actionTypes";
+import history from "../../store/history";
 
-import { Form, notification, Input, Select, Button, InputNumber } from "antd";
+import { Form, Input, Select, Button, InputNumber } from "antd";
 
 const { Option } = Select;
 
@@ -39,22 +38,23 @@ const tailFormItemLayout = {
   },
 };
 
-function UpdateCourse(props) {
+function UpdateCourse({
+  requestJobsDash,
+  requestLanguagesDash,
+  requestUpdateCoursesDash,
+  requestSkillsDash,
+  requestTopics,
+  requestCourseDetail,
+  topics,
+  skills,
+  languages,
+  jobs,
+  course,
+  match,
+}) {
   const [form] = Form.useForm();
-  const [courseDetail, setCourseDetail] = useState({});
-  const {
-    requestJobsDash,
-    requestLanguagesDash,
-    requestSkillsDash,
-    requestTopics,
-    requestCourseDetail,
-    topics,
-    skills,
-    languages,
-    jobs,
-    course,
-    match,
-  } = props;
+  const { getFieldValue, setFieldsValue } = form;
+  // console.log("form: ", form);
   const id = match.params.id || 0;
   useEffect(() => {
     requestCourseDetail(id);
@@ -69,16 +69,24 @@ function UpdateCourse(props) {
     requestSkillsDash,
     requestTopics,
   ]);
-  useEffect(() => {
-    if (Object.keys(props.course).length > 0) {
-      setCourseDetail(props.course);
-    }
-  }, [props.course]);
 
-  const onHandleFinish = (value) => {
-    console.log("value: ", value);
+  useEffect(() => {
+    console.log("course: ", course);
+    setFieldsValue({
+      title: course.title,
+      duration: course.duration,
+      skillsId: course.skillsId,
+      languagesId: course.languagesId,
+      jobsId: course.jobsId,
+      level: String(course.level),
+      categoriesId: course.categoriesId,
+    });
+  }, [course]);
+
+  const onHandleFinish = (params) => {
+    requestUpdateCoursesDash(id, params);
   };
-  console.log("course detail: ", courseDetail);
+
   return (
     <div className="container mt-4 pr-4">
       <h3 className="text-center">Cập nhật khóa học</h3>
@@ -91,8 +99,8 @@ function UpdateCourse(props) {
       >
         <Form.Item
           name="title"
-          initialValue={courseDetail.title ? "Co" : "Khong"}
           label="Tiêu Đề"
+          initialValue={getFieldValue("title")}
           rules={[
             {
               type: "string",
@@ -109,7 +117,7 @@ function UpdateCourse(props) {
 
         <Form.Item
           name="duration"
-          initialValue={courseDetail.duration}
+          initialValue={getFieldValue("duration")}
           label="Thời lượng"
           rules={[
             {
@@ -127,7 +135,7 @@ function UpdateCourse(props) {
 
         <Form.Item
           name="languagesId"
-          initialValue={courseDetail.languagesId}
+          initialValue={getFieldValue("languagesId")}
           label="Ngôn Ngữ"
           rules={[
             {
@@ -158,7 +166,7 @@ function UpdateCourse(props) {
 
         <Form.Item
           name="jobsId"
-          initialValue={courseDetail.jobsId}
+          initialValue={getFieldValue("jobsId")}
           label="Hệ Nghề Nghiệp"
           rules={[
             {
@@ -189,7 +197,7 @@ function UpdateCourse(props) {
 
         <Form.Item
           name="skillsId"
-          initialValue={courseDetail.skillsId}
+          initialValue={getFieldValue("skillsId")}
           label="Kỹ Năng"
           rules={[
             {
@@ -220,7 +228,7 @@ function UpdateCourse(props) {
 
         <Form.Item
           name="level"
-          initialValue={courseDetail.level}
+          initialValue={getFieldValue("level")}
           label="Trình Độ"
           rules={[
             {
@@ -249,7 +257,7 @@ function UpdateCourse(props) {
 
         <Form.Item
           name="categoriesId"
-          initialValue={courseDetail.categoriesId}
+          initialValue={getFieldValue("categoriesId")}
           label="Chuyên Mục"
           rules={[
             {
@@ -284,8 +292,12 @@ function UpdateCourse(props) {
           <Button type="primary" htmlType="submit">
             Cập nhật
           </Button>
-          <Button type="outline">
-            <a href="/dashboard/category/courses">Trở lại</a>
+          <Button
+            className="ml-3"
+            type="outline"
+            onClick={() => history.goBack()}
+          >
+            Trở lại
           </Button>
         </Form.Item>
       </Form>

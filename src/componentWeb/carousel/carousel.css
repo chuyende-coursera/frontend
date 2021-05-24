@@ -12,3 +12,10 @@
 .ant-carousel .slick-slide h3 {
   color: #fff;
 }
+
+.vertical-center {
+  min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+
+  display: flex;
+  align-items: center;
+}

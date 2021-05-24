@@ -24,7 +24,6 @@ const Content = ({ children, extraContent }) => {
 };
 
 const PageHeaderAll = ({ course, requestBuyCourse }) => {
-  console.log("course: ", course);
   let routes;
   if (Object.keys(course).length > 0) {
     routes = [
@@ -57,7 +56,7 @@ const PageHeaderAll = ({ course, requestBuyCourse }) => {
       <Paragraph>
         <div>
           <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />{" "}
-          by QuocHuy
+          by {course && course.creators && course.creators.name}
         </div>
       </Paragraph>
 

@@ -1,0 +1,102 @@
+/* .container-fluid {
+  background-color: #f5f5f5;
+}
+.container {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-top: 10px;
+}
+.edit {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.display-2-text {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.label {
+  font-weight: 700;
+}
+.horizontal-box {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.display-4-text {
+  font-size: 32px;
+  line-height: 36px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+._1hx9z6hg {
+  border-radius: 2px;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  line-height: 1rem;
+  user-select: none;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-image: none;
+  cursor: pointer;
+  filter: none;
+  text-decoration: none;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  background-color: rgb(42, 115, 204);
+  border: 1px solid rgb(42, 115, 204);
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  min-height: 48px;
+  touch-action: manipulation;
+}
+.content,
+.remove,
+.website {
+  display: none;
+}
+
+.image-selector-image {
+  background: #42afd8;
+  width: 120px;
+  height: 120px;
+  float: left;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary {
+  background-image: linear-gradient(#2a73cc, #2260aa);
+  border: 1px solid #2073d4;
+  background-color: #2073d4;
+  padding: 16px 30px;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: OpenSans-Semibold, Arial, sans-serif;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-image: none;
+  border: none;
+  opacity: 1;
+  filter: none;
+  text-decoration: none;
+  color: #fff;
+  min-width: 72px;
+  transition-duration: 0.1s;
+  transition-timing-function: ease;
+  transition-delay: 0ms;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 0;
+  touch-action: manipulation;
+} */

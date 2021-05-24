@@ -7,6 +7,7 @@ import ReactPlayer from "react-player";
 
 const { Content } = Layout;
 function Video({ videoUrl }) {
+  console.log("videoUrl: ", videoUrl);
   return (
     <Layout style={{ padding: "0 24px 24px" }}>
       <Content
@@ -18,8 +19,8 @@ function Video({ videoUrl }) {
         }}
       >
         {videoUrl === "" ? (
-          <div className="react-player">
-            <h1>Chúc bạn học tập hiệu quả</h1>
+          <div className=" react-player container ">
+            <h1 className="text-center ">Chúc bạn học tập hiệu quả</h1>
           </div>
         ) : (
           <ReactPlayer

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import "antd/dist/antd.css";
+import "./course.css";
 import viMessage from "../../locales/vi";
-import { Redirect } from "react-router-dom";
-import * as actionTypes from "../../actions/actionTypes";
+import history from "../../store/history";
 
 import { Form, notification, Input, Select, Button, InputNumber } from "antd";
 
@@ -14,7 +14,7 @@ const formItemLayout = {
       span: 24,
     },
     sm: {
-      span: 8,
+      span: 4,
     },
   },
   wrapperCol: {
@@ -65,12 +65,13 @@ function AddCourse(props) {
   // }, [requestLanguagesDash]);
 
   return (
-    <div className="container mt-4 pr-4">
+    <div className="container m-auto">
       <h3 className="text-center">Thêm Mới Khóa Học</h3>
       <Form
         {...formItemLayout}
         form={form}
-        name="register"
+        className="formCenter"
+        name="addcourse"
         onFinish={requestCreateCoursesDash}
         scrollToFirstError
       >
@@ -81,6 +82,22 @@ function AddCourse(props) {
             {
               type: "string",
               message: viMessage["app.courses.validate.title"],
+            },
+            {
+              required: true,
+              message: viMessage["app.courses.title"],
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="description"
+          label="Miêu tả khóa học"
+          rules={[
+            {
+              type: "string",
+              message: viMessage["app.courses.validate.description"],
             },
             {
               required: true,
@@ -271,7 +288,14 @@ function AddCourse(props) {
 
         <Form.Item {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">
-            Add Course
+            Thêm khóa học
+          </Button>
+          <Button
+            className="ml-3"
+            type="outline"
+            onClick={() => history.goBack()}
+          >
+            Trở lại
           </Button>
         </Form.Item>
       </Form>

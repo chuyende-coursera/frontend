@@ -1,0 +1,16 @@
+export default {
+  "app.courses.title": "Tiêu đề khóa học",
+  "app.courses.description": "Miêu tả khóa học",
+  "app.courses.language": "Ngôn ngữ Khóa học",
+  "app.courses.skill": "Kỹ năng Khóa học",
+  "app.courses.job": "Nghề nghiệp Khóa học",
+  "app.courses.duration": "Thời lượng Khóa học",
+  "app.courses.level": "Trình độ khóa học",
+  "app.courses.categories": "Danh mục khóa học",
+  "app.courses.addCourse": "Tạo khóa học",
+  "app.courses.buyCourse": "Thêm khóa học vào giỏ hàng",
+  "app.courses.deleteCourseDash": "Xóa khóa học",
+  "app.courses.updateCourseDash": "Cập nhật khóa học",
+  "app.courses.deleteCourse": "Xóa khóa học vào giỏ hàng",
+  "app.courses.paymentCourse": "Thanh toán khóa học",
+};

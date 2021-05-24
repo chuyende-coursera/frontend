@@ -4,10 +4,42 @@ import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./bodyHomePage.css";
 
-
 function BodyHomePage() {
   return (
     <Fragment>
+      <section className="outcome">
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
+              <div>
+                <img
+                  style={{ maxHeight: "250px" }}
+                  alt="3 hero images of people smiling"
+                  src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/front-page-story/achieve-your-goals/promoStat.png?auto=format%2Ccompress&amp;dpr=1&amp;w=&amp;h=250"
+                />
+              </div>
+            </div>
+            <div className="col-6">
+              <div>
+                <h2>Learner outcomes on Coursera</h2>
+                <h3>
+                  87% of people learning for professional development report
+                  career benefits like getting a promotion, a raise, or starting
+                  a new career
+                </h3>
+                <span>Coursera Learner Outcomes Survey (2019)</span>
+                <div>
+                  <button className="btn btn-primary">Join for Free</button>
+                  <button className="btn btn-default">
+                    Try Coursera for Bussiness
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="collab">
         <div className="container mt-4 text-center">
           <div className="row ">
@@ -96,38 +128,6 @@ function BodyHomePage() {
         </div>
       </section>
 
-      <section className="outcome">
-        <div className="container">
-          <div className="row">
-            <div className="col-6">
-              <div>
-                <img
-                  style={{ maxHeight: "250px" }}
-                  alt="3 hero images of people smiling"
-                  src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/front-page-story/achieve-your-goals/promoStat.png?auto=format%2Ccompress&amp;dpr=1&amp;w=&amp;h=250"
-                />
-              </div>
-            </div>
-            <div className="col-6">
-              <div>
-                <h2>Learner outcomes on Coursera</h2>
-                <h3>
-                  87% of people learning for professional development report
-                  career benefits like getting a promotion, a raise, or starting
-                  a new career
-                </h3>
-                <span>Coursera Learner Outcomes Survey (2019)</span>
-                <div>
-                  <button className="btn btn-primary">Join for Free</button>
-                  <button className="btn btn-default">
-                    Try Coursera for Bussiness
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <section className="worldclassName">
         <div className="container">
           <h1 className="text-center">

@@ -1,23 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Layout, Avatar, Badge } from "antd";
 import MenuDash from "../menu/Menu";
 import "antd/dist/antd.css";
-import { UserOutlined } from "@ant-design/icons";
-// const onCollapse = (collapsed) => {
-//   console.log(collapsed);
-//   this.setState({ collapsed });
-// };
+import { DashboardOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import "./slider.css";
 const { Sider } = Layout;
 
 const SiderDash = () => {
+  const [collapsed, setCollapsed] = useState(false);
+  const onCollapse = (collapsed) => {
+    setCollapsed(collapsed);
+  };
   return (
-    <Sider collapsible>
-      <div className="logo text-center">
-        <span className="avatar-item">
-          <Badge count={1}>
-            <Avatar shape="square" icon={<UserOutlined />} />
-          </Badge>
-        </span>
+    <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+      <div className="text-center logodash">
+        <Link to="">
+          <Avatar
+            shape="square"
+            icon={
+              <DashboardOutlined
+                style={{ fontSize: "50px", color: "#08c", size: "80%" }}
+              />
+            }
+          />
+        </Link>
       </div>
       <MenuDash />
     </Sider>
