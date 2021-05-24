@@ -1,0 +1,2710 @@
+<!DOCTYPE html>
+
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Hệ thi trực tuyến OnlineTest</title>
+    <link rel="icon" href="#1e5c8b">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" href="offline-theme-default.css">
+    <link rel="stylesheet" href="offline-language-vi.css">
+    <link rel="stylesheet" href="site.css">
+    <style>
+
+
+
+        @media all and (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+
+        }
+
+
+        .swal2-popup.swal2-toast :focus {
+            box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(50, 100, 150, .4)
+        }
+
+
+        .swal2-container.swal2-bottom-end > :first-child,
+        .swal2-container.swal2-bottom-left > :first-child,
+        .swal2-container.swal2-bottom-right > :first-child,
+        .swal2-container.swal2-bottom-start > :first-child,
+        .swal2-container.swal2-bottom > :first-child {
+            margin-top: auto
+        }
+
+
+        .swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen) > .swal2-modal {
+            margin: auto
+        }
+
+        @media all and (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+
+        }
+
+
+        .swal2-actions:not(.swal2-loading) :hover {
+            background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1))
+        }
+
+        .swal2-actions:not(.swal2-loading) :active {
+            background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2))
+        }
+
+
+        .swal2-actions.swal2-loading :not(.swal2-styled)::after {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-left: 5px;
+            -webkit-animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+            animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+            border: 3px solid #999;
+            border-radius: 50%;
+            border-right-color: transparent;
+            box-shadow: 1px 1px 1px #fff
+        }
+
+
+        .swal2-range input {
+            width: 80%
+        }
+
+        .swal2-range output {
+            width: 20%;
+            color: inherit;
+            font-weight: 600;
+            text-align: center
+        }
+
+        .swal2-range input,
+        .swal2-range output {
+            height: 2.625em;
+            padding: 0;
+            font-size: 1.125em;
+            line-height: 2.625em
+        }
+
+
+        .swal2-checkbox label,
+        .swal2-radio label {
+            margin: 0 .6em;
+            font-size: 1.125em
+        }
+
+        .swal2-checkbox input,
+        .swal2-radio input {
+            margin: 0 .4em
+        }
+
+
+        .swal2-progress-steps li {
+            display: inline-block;
+            position: relative
+        }
+
+        .
+        .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ {
+            background: #add8e6;
+            color: #fff
+        }
+
+        .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ {
+            background: #add8e6
+        }
+
+
+        @supports (-ms-accelerator:true) {
+            .swal2-range input {
+                width: 100% !important
+            }
+
+            .swal2-range output {
+                display: none
+            }
+        }
+
+        @media all and (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+            .swal2-range input {
+                width: 100% !important
+            }
+
+            .swal2-range output {
+                display: none
+            }
+        }
+
+        @-webkit-keyframes swal2-toast-show {
+            0% {
+                transform: translateY(-.625em) rotateZ(2deg)
+            }
+
+            33% {
+                transform: translateY(0) rotateZ(-2deg)
+            }
+
+            66% {
+                transform: translateY(.3125em) rotateZ(2deg)
+            }
+
+            100% {
+                transform: translateY(0) rotateZ(0)
+            }
+        }
+
+        @keyframes swal2-toast-show {
+            0% {
+                transform: translateY(-.625em) rotateZ(2deg)
+            }
+
+            33% {
+                transform: translateY(0) rotateZ(-2deg)
+            }
+
+            66% {
+                transform: translateY(.3125em) rotateZ(2deg)
+            }
+
+            100% {
+                transform: translateY(0) rotateZ(0)
+            }
+        }
+
+        @-webkit-keyframes swal2-toast-hide {
+            100% {
+                transform: rotateZ(1deg);
+                opacity: 0
+            }
+        }
+
+        @keyframes swal2-toast-hide {
+            100% {
+                transform: rotateZ(1deg);
+                opacity: 0
+            }
+        }
+
+        @-webkit-keyframes swal2-toast-animate-success-line-tip {
+            0% {
+                top: .5625em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: .125em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: .625em;
+                left: -.25em;
+                width: 1.625em
+            }
+
+            84% {
+                top: 1.0625em;
+                left: .75em;
+                width: .5em
+            }
+
+            100% {
+                top: 1.125em;
+                left: .1875em;
+                width: .75em
+            }
+        }
+
+        @keyframes swal2-toast-animate-success-line-tip {
+            0% {
+                top: .5625em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: .125em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: .625em;
+                left: -.25em;
+                width: 1.625em
+            }
+
+            84% {
+                top: 1.0625em;
+                left: .75em;
+                width: .5em
+            }
+
+            100% {
+                top: 1.125em;
+                left: .1875em;
+                width: .75em
+            }
+        }
+
+        @-webkit-keyframes swal2-toast-animate-success-line-long {
+            0% {
+                top: 1.625em;
+                right: 1.375em;
+                width: 0
+            }
+
+            65% {
+                top: 1.25em;
+                right: .9375em;
+                width: 0
+            }
+
+            84% {
+                top: .9375em;
+                right: 0;
+                width: 1.125em
+            }
+
+            100% {
+                top: .9375em;
+                right: .1875em;
+                width: 1.375em
+            }
+        }
+
+        @keyframes swal2-toast-animate-success-line-long {
+            0% {
+                top: 1.625em;
+                right: 1.375em;
+                width: 0
+            }
+
+            65% {
+                top: 1.25em;
+                right: .9375em;
+                width: 0
+            }
+
+            84% {
+                top: .9375em;
+                right: 0;
+                width: 1.125em
+            }
+
+            100% {
+                top: .9375em;
+                right: .1875em;
+                width: 1.375em
+            }
+        }
+
+        @-webkit-keyframes swal2-show {
+            0% {
+                transform: scale(.7)
+            }
+
+            45% {
+                transform: scale(1.05)
+            }
+
+            80% {
+                transform: scale(.95)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        @keyframes swal2-show {
+            0% {
+                transform: scale(.7)
+            }
+
+            45% {
+                transform: scale(1.05)
+            }
+
+            80% {
+                transform: scale(.95)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        @-webkit-keyframes swal2-hide {
+            0% {
+                transform: scale(1);
+                opacity: 1
+            }
+
+            100% {
+                transform: scale(.5);
+                opacity: 0
+            }
+        }
+
+        @keyframes swal2-hide {
+            0% {
+                transform: scale(1);
+                opacity: 1
+            }
+
+            100% {
+                transform: scale(.5);
+                opacity: 0
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-success-line-tip {
+            0% {
+                top: 1.1875em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: 1.0625em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: 2.1875em;
+                left: -.375em;
+                width: 3.125em
+            }
+
+            84% {
+                top: 3em;
+                left: 1.3125em;
+                width: 1.0625em
+            }
+
+            100% {
+                top: 2.8125em;
+                left: .8125em;
+                width: 1.5625em
+            }
+        }
+
+        @keyframes swal2-animate-success-line-tip {
+            0% {
+                top: 1.1875em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: 1.0625em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: 2.1875em;
+                left: -.375em;
+                width: 3.125em
+            }
+
+            84% {
+                top: 3em;
+                left: 1.3125em;
+                width: 1.0625em
+            }
+
+            100% {
+                top: 2.8125em;
+                left: .8125em;
+                width: 1.5625em
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-success-line-long {
+            0% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            65% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            84% {
+                top: 2.1875em;
+                right: 0;
+                width: 3.4375em
+            }
+
+            100% {
+                top: 2.375em;
+                right: .5em;
+                width: 2.9375em
+            }
+        }
+
+        @keyframes swal2-animate-success-line-long {
+            0% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            65% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            84% {
+                top: 2.1875em;
+                right: 0;
+                width: 3.4375em
+            }
+
+            100% {
+                top: 2.375em;
+                right: .5em;
+                width: 2.9375em
+            }
+        }
+
+        @-webkit-keyframes swal2-rotate-success-circular-line {
+            0% {
+                transform: rotate(-45deg)
+            }
+
+            5% {
+                transform: rotate(-45deg)
+            }
+
+            12% {
+                transform: rotate(-405deg)
+            }
+
+            100% {
+                transform: rotate(-405deg)
+            }
+        }
+
+        @keyframes swal2-rotate-success-circular-line {
+            0% {
+                transform: rotate(-45deg)
+            }
+
+            5% {
+                transform: rotate(-45deg)
+            }
+
+            12% {
+                transform: rotate(-405deg)
+            }
+
+            100% {
+                transform: rotate(-405deg)
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-error-x-mark {
+            0% {
+                margin-top: 1.625em;
+                transform: scale(.4);
+                opacity: 0
+            }
+
+            50% {
+                margin-top: 1.625em;
+                transform: scale(.4);
+                opacity: 0
+            }
+
+            80% {
+                margin-top: -.375em;
+                transform: scale(1.15)
+            }
+
+            100% {
+                margin-top: 0;
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        @keyframes swal2-animate-error-x-mark {
+            0% {
+                margin-top: 1.625em;
+                transform: scale(.4);
+                opacity: 0
+            }
+
+            50% {
+                margin-top: 1.625em;
+                transform: scale(.4);
+                opacity: 0
+            }
+
+            80% {
+                margin-top: -.375em;
+                transform: scale(1.15)
+            }
+
+            100% {
+                margin-top: 0;
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-error-icon {
+            0% {
+                transform: rotateX(100deg);
+                opacity: 0
+            }
+
+            100% {
+                transform: rotateX(0);
+                opacity: 1
+            }
+        }
+
+        @keyframes swal2-animate-error-icon {
+            0% {
+                transform: rotateX(100deg);
+                opacity: 0
+            }
+
+            100% {
+                transform: rotateX(0);
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes swal2-rotate-loading {
+            0% {
+                transform: rotate(0)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes swal2-rotate-loading {
+            0% {
+                transform: rotate(0)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        body:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
+            overflow: scroll;
+        }
+
+        body{
+            height: auto !important
+
+        }
+
+
+
+        @media print {
+            body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
+                overflow-y: scroll !important
+            }
+
+            body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) > [aria-hidden=true] {
+                display: none
+            }
+
+            body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container {
+                position: static !important
+            }
+        }
+
+
+    </style>
+    <style type="text/css">
+
+
+
+
+        .MathJax_Menu_Button .MathJax_Hover_Arrow span {
+            display: block;
+            background-color: #AAA;
+            border: 1px solid;
+            border-radius: 3px;
+            line-height: 0;
+            padding: 4px
+        }
+
+
+
+        .MathJax_Hover_Arrow:hover span {
+            background-color: #CCC !important
+        }
+    </style>
+    <style type="text/css">
+
+        .MathJax_ContextMenu :focus {
+            outline: none
+        }
+
+
+
+
+
+        .MathJax_MenuClose span {
+            display: block;
+            background-color: #AAA;
+            border: 1.5px solid;
+            border-radius: 18px;
+            -webkit-border-radius: 18px;
+            -moz-border-radius: 18px;
+            -khtml-border-radius: 18px;
+            line-height: 0;
+            padding: 8px 0 6px
+        }
+
+
+
+        .MathJax_MenuClose:hover span {
+            background-color: #CCC !important
+        }
+
+
+    </style>
+
+    <script type="text/javascript" async="" src="analytics.js.tải xuống"></script>
+    <style type="text/css">
+
+        .MJXp-math span {
+            display: inline-block
+        }
+
+
+
+        .MJXp-denom > * {
+            display: table-row !important
+        }
+
+
+
+        .MJXp-surd > * {
+            display: block !important
+        }
+
+        .MJXp-script-box > * {
+            display: table !important;
+            height: 50%
+        }
+
+        .MJXp-script-box > * > * {
+            display: table-cell !important;
+            vertical-align: top
+        }
+
+        .MJXp-script-box > *:last-child > * {
+            vertical-align: bottom
+        }
+
+        .MJXp-script-box > * > * > * {
+            display: block !important
+        }
+
+
+
+
+
+
+        .MJXp-over > * {
+            display: block !important
+        }
+
+        .MJXp-munderover > *,
+        .MJXp-munder > * {
+            display: table-row !important
+        }
+
+        .MJXp-mtable > * {
+            display: inline-table !important;
+            vertical-align: middle
+        }
+
+
+
+        .MJXp-mtr > :first-child {
+            padding-left: 0
+        }
+
+        .MJXp-mtr:first-child > {
+            padding-top: 0
+        }
+
+
+        .MJXp-mlabeledtr > :first-child {
+            padding-left: 0
+        }
+
+        .MJXp-mlabeledtr:first-child > {
+            padding-top: 0
+        }
+
+    </style>
+    <style type="text/css">
+
+        .MathJax img,
+        .MathJax nobr,
+        .MathJax a {
+            border: 0;
+            padding: 0;
+            margin: 0;
+            max-width: none;
+            max-height: none;
+            min-width: 0;
+            min-height: 0;
+            vertical-align: 0;
+            line-height: normal;
+            text-decoration: none
+        }
+
+
+        .MathJax span {
+            display: inline;
+            position: static;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            vertical-align: 0;
+            line-height: normal;
+            text-decoration: none;
+            box-sizing: content-box
+        }
+
+        .MathJax nobr {
+            white-space: nowrap !important
+        }
+
+        .MathJax img {
+            display: inline !important;
+            float: none !important
+        }
+
+        .MathJax * {
+            transition: none;
+            -webkit-transition: none;
+            -moz-transition: none;
+            -ms-transition: none;
+            -o-transition: none
+        }
+
+        .MathJax .MathJax_HitBox * {
+            filter: none;
+            opacity: 1;
+            background: transparent
+        }
+
+        #MathJax_Tooltip * {
+            filter: none;
+            opacity: 1;
+            background: transparent
+        }
+
+        @font-face {
+            font-family: MathJax_Main;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Main-bold;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Main-italic;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Math-italic;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Caligraphic;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Size1;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Size2;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Size3;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Size4;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.8') format('opentype')
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div style="min-height:67px; background-image:linear-gradient(to top, #dbdbdb, #ffffff);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="{{url('/')}}" style="text-decoration:none">
+                        <img src="logo.jpg" alt="Logo"
+                             style="float:left; margin-right:10px; min-height:45px; margin-top:10px; height:70px; width:70px; border-radius: 50%; ">
+
+                        <h3 class="top-header-caption" style="margin: 30px;">Hệ thống thi trực tuyến OnlineTest</h3>
+                    </a>
+                </div>
+                <div class="col-md-4 text-right" style="margin-bottom:10px">
+                    <a href="{{ route('login') }}"
+                       style="margin-top:13px;margin-bottom:10px; border-radius:5px; background-color:#124e7a; border-color:#124e7a; color:#fff; font-size:17px"
+                       class="btn btn-primary sign-in-pc">
+                        <i class="fas fa-user-circle" style="color:#fff; margin-right:5px"></i> Đăng nhập
+                    </a>
+
+                </div>
+                <div class="col-md-2 text-center" style="margin-bottom:10px">
+                    <a href="{{ route('register') }}"
+                       style="margin-top:13px;margin-bottom:10px; border-radius:5px; background-color:#124e7a; border-color:#124e7a; color:#fff; font-size:17px"
+                       class="btn btn-primary sign-in-pc">
+                        <i class="far fa-user-circle" style="color:#fff; margin-right:5px"></i> Đăng ký
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav id="main-nav"
+         class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light border-bottom box-shadow mb-3">
+        <div class="container">
+
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item show-on-mobile-f active">
+                        <a class="nav-link" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Lớp của bạn</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Giáo viên</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Giới
+                            thiệu</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Hướng
+                            dẫn</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Tin tức</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div style="background-color:#f5f5f6; padding-bottom:50px;">
+    <div class="container">
+        <div class="col-12">
+            <div class="row">
+                <div class="mainkt col-lg-12 col-xl-8">
+
+                    <div class="row" style="margin-top:20px" id="list-ky-thi-content">
+                        @foreach($rooms as $room)
+                        <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up">
+                            <div class="card">
+                                <div class="card-body lear-item">
+                                    <div style="height: 250px; width: 100%">
+                                        <img width="100%" src="{{ URL::to('storage/'.$room->avatar) }}" height="100%" >
+                                    </div>
+
+                                    <p><label style="margin-top:10px;"><b>Lớp: {{$room->name}}</b></label></p>
+                                    <p>Loại lớp: <label>{{$room->type}} </label></p>
+                                    <p>Giáo viên: <span>{{$room->owner->name}}</span></p>
+                                    <p>Số lượng bài thi: <span>{{$room->createdExams->count()}}</span></p>
+
+
+                                    <a class="btn btn-light" href="#">Chi
+                                        tiết</a>
+
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+
+
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button class="btn btn-primary show-more" onclick="LoadMore()" style="">Xem
+                                Thêm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-xl-4 rank-col">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3 class="home-title-content" style="margin-bottom:20px">Lớp mới mở</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a href="#">
+                                        <img src="ly12.png" class="img-fluid"
+                                             style="float:left; margin-right:15px; max-width: 160px">
+                                        <p style="font-size: 15px;color: #333333;font-weight: bold;">
+                                            Lớp Laravel <br>
+                                            Loại lớp: Limit <br>
+                                            Giáo viên: Anh Huy <br>
+                                            Số bài thi: 0 <br>
+                                            <label
+                                                    style="font-size: 13px;color: #6d6d6d; margin-left:175px;">23/05/2020</label>
+                                        </p>
+
+                                    </a>
+
+                                    <hr style="float:left; margin-top:5px; width:100%">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a href="#">
+                                        <img src="Nguvan9_20200513.mp4_snapshot_00.26.808.jpg" class="img-fluid"
+                                             style="float:left; margin-right:15px; max-width: 160px">
+                                        <p style="font-size: 15px;color: #333333;font-weight: bold;">
+                                            Lớp Laravel <br>
+                                            Loại lớp: Limit <br>
+                                            Giáo viên: Anh Huy <br>
+                                            Số bài thi: 0 <br>
+                                            <label
+                                                    style="font-size: 13px;color: #6d6d6d; margin-left:175px;">23/05/2020</label>
+                                        </p>
+
+                                    </a>
+
+                                    <hr style="float:left; margin-top:5px; width:100%">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="padding-top:50px">
+    <h1
+            style="text-align:center; text-transform:uppercase;font-size: 21px;font-weight: bold;line-height: 0.86;color: #1d5d8b;">
+        tin tức - thông báo</h1>
+    <hr style="width:10%; margin:auto; border:1px solid #1d5d8b">
+    <div class="row" style="padding-top:50px">
+        <div class="col-xl-2dot4 col-lg-4 col-md-4" style="padding-bottom:10px; text-align:center">
+            <a class="text-center" href="#">
+                <img src="a83c2052-194d-4041-a3a1-0c95b22d7804VSTUDY.PNG" class="img-fluid m-auto">
+                <h3
+                        style="font-size: 15px;font-weight: bold;line-height: 1.43;color: #393b3e; margin-top:10px; text-align:left">
+                    HỆ THỐNG HỌC VÀ THI TRỰC TUYẾN HANOI-STUDY
+                </h3>
+            </a>
+            <p style="font-size: 13px;line-height: 1.38; color: #8c8c8c; text-align:left">Cập nhật: 14/05/2020 </p>
+        </div>
+        <div class="col-xl-2dot4 col-lg-4 col-md-4" style="padding-bottom:10px; text-align:center">
+            <a class="text-center" href="#">
+                <img src="a0312112-cd82-4dde-8484-3ad214e0f61b_Capture3.PNG" class="img-fluid m-auto">
+                <h3
+                        style="font-size: 15px;font-weight: bold;line-height: 1.43;color: #393b3e; margin-top:10px; text-align:left">
+                    Hướng dẫn sử dụng Hệ thống thi trắc nghiệm Thành Phố Hà Nội
+                </h3>
+            </a>
+            <p style="font-size: 13px;line-height: 1.38; color: #8c8c8c; text-align:left">Cập nhật: 06/02/2020 </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="space-footter" style="margin-bottom: 257.984px;">
+</div>
+<footer class="border-top footer text-muted" id="footerD">
+    <div class="text-center"
+         style="background-color:#f5f5f4; color:#124e7a; line-height:1.46; padding:15px 0px; font-size:13px">
+        <h4 style="text-transform:uppercase; font-size:15px; font-weight:bold">SỞ GIÁO DỤC VÀ ĐÀO TẠO THÀNH PHỐ HÀ
+            NỘI</h4>
+        Địa chỉ: 23 Quang Trung, 81 Thợ Nhuộm, Hoàn Kiếm, Hà Nội<br>
+        Điện thoại: 024.39347489 , Hotline: 1900 4740 ; Fax: 024.39423985<br>
+        Email: khcntt@hanoiedu.vn, gdtrunghoc@hanoiedu.vn
+    </div>
+    <div class="text-center border-top"
+         style="background-color:#1e5c8b; color:rgba(255, 255, 255, 0.8); padding:15px 5px; font-size:13px; font-weight:300">
+        2020 © All Rights Reserved - Hệ thống học và thi trực tuyến HanoiStudy (Version 3)<br>
+        Hỗ trợ trực tuyến <a style="color:#fff" target="_blank"
+                             href="https://ultraviewer.net/vi/download.html">UltraViewer</a> <br> <label
+            style="color:#fde581">Phiên
+        bản chạy thử nghiệm</label>
+    </div>
+    <div class="icontop" id="icontop" >
+        <a href="#top"><i class="fas fa-arrow-up gototop"></i></a>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+<script src="sweetalert2.all.min.js.tải xuống"></script>
+<script src="select2.js.tải xuống"></script>
+<script type="text/javascript" src="download2.js.tải xuống"></script>
+<script type="text/javascript" src="html2canvas.min.js.tải xuống"></script>
+<script type="text/javascript" src="offline.min.js.tải xuống"></script>
+<script  src="bootstrap.bundle.min.js.tải xuống"></script>
+<script src="jquery.min.js.tải xuống"></script>
+<script src="site.js.tải xuống"></script>
+<script>
+    $(function () {
+        $('#user-menu-logined').popover({
+            placement: "bottom",
+            html: true,
+            content: function () {
+                return $('.data-popover-userlogined').html();
+            }
+        });
+        $('body').on('click', function (e) {
+            if ($(e.target).data('toggle') !== 'popover'
+                && $(e.target).parents('.popover.in').length === 0) {
+                $('[data-toggle="popover"]').popover('hide');
+            }
+        });
+    });
+    $(".select2").select2();
+</script>
+
+<script>
+    var _page = 0;
+    var _slc = '03';
+    var _sbc = '';
+    var _sjc = '';
+    var _ctc = '';
+
+    $(function () {
+        LoadSelectSchoolBlock(_slc);
+        if ('False' == 'True') {
+            LoadSelectSubjects(_slc, _sbc);
+        }
+        LoadSelectExamRankChose(_slc);
+        LoadMore();
+        LoadRanking();
+
+        $("#school-block").change(function () {
+            _page = 0;
+            _sbc = this.value;
+            _ctc = '';
+            $('#list-ky-thi-content').html('');
+            var htmlMon = '<option value="">Chọn môn học</option>';
+            var htmlChuong = '<option value="">Chọn chương</option>';
+            $("#subjects").html(htmlMon);
+            $("#chapters").html(htmlChuong);
+            if (_sbc != "") {
+                LoadSelectSubjects(_slc, _sbc);
+                LoadSelectChapter(_slc, _sbc, _sjc);
+            }
+            LoadMore();
+        });
+        $("#subjects").change(function () {
+            _page = 0;
+            _sjc = this.value;
+            _ctc = '';
+            $('#list-ky-thi-content').html('');
+            LoadSelectChapter(_slc, _sbc, _sjc);
+            LoadMore();
+        });
+        $("#chapters").change(function () {
+            _page = 0;
+            _ctc = this.value;
+            $('#list-ky-thi-content').html('');
+            LoadMore();
+        });
+        $("#exam-rank-select").change(function () {
+            LoadRanking();
+        });
+    });
+
+    function ChangeSchoolLevel(slc) {
+        _slc = slc;
+        _page = 0;
+        _sbc = '';
+        _sjc = '';
+        _ctc = '';
+        LoadSelectSchoolBlock(_slc);
+        LoadSelectExamRankChose(_slc);
+        var htmlMon = '<option value="">Chọn môn học</option>';
+        var htmlChuong = '<option value="">Chọn chương</option>';
+        $("#subjects").html(htmlMon);
+        $("#chapters").html(htmlChuong);
+        $('#list-ky-thi-content').html('');
+        LoadMore();
+        if (0 > 0) {
+            LoadSelectSubjects(_slc, _sbc);
+        }
+    };
+
+    function LoadSelectSchoolBlock(slc) {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "/home/getselectschoolblocks?slc=" + slc,
+            dataType: "json",
+            success: function (data) {
+                var html = '<option value="">Chọn khối</option>';
+                $.each(data, function (i, obj) {
+                    html += "<option value=" + obj.Code + ">" + obj.Name + "</option>";
+                });
+                $('#school-block').html(html);
+            }
+        });
+    };
+
+    function LoadSelectSubjects(slc, sbc) {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "/home/getselectsubjectes?slc=" + slc + "&sbc=" + sbc,
+            dataType: "json",
+            success: function (data) {
+                var html = '<option value="">Chọn môn học</option>';
+                $.each(data, function (i, obj) {
+                    html += "<option value=" + obj.Code + ">" + obj.Name + "</option>";
+                });
+                $('#subjects').html(html);
+            }
+        });
+    };
+
+    function LoadSelectChapter(slc, sbc, sjc) {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "/home/getselectchapters?slc=" + slc + "&sbc=" + sbc + "&sjc=" + sjc,
+            dataType: "json",
+            success: function (data) {
+                var html = '<option value="">Chọn chương</option>';
+                $.each(data, function (i, obj) {
+                    html += "<option value=" + obj.Code + ">" + obj.Name + "</option>";
+                });
+                $('#chapters').html(html);
+            }
+        });
+    };
+
+    function LoadSelectExamRankChose(slc) {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "/home/getselectexamforchoserank?slc=" + slc,
+            dataType: "json",
+            success: function (data) {
+                var html = '';
+                $.each(data, function (i, obj) {
+                    html += "<option value=" + obj.Id + ">" + obj.Name + "</option>";
+                });
+                if (html == '') {
+                    $('.top-ranking-exam').hide();
+                } else {
+                    $('#exam-rank-select').html(html);
+                    LoadRanking();
+                    $('.top-ranking-exam').show();
+                }
+            }
+        });
+    };
+
+    function LoadMore() {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "/home/getexamlisthome?page=" + _page + "&slc=" + _slc + "&sbc=" + _sbc + "&sjc=" + _sjc + "&ctc=" + _ctc,
+            dataType: "json",
+            success: function (data) {
+                var appendDiv = '';
+                $.each(data, function (i, obj) {
+                    appendDiv += '<div class="col-lg-4 col-md-6"> <div class="card"> <div class="card-body"> <h5 class="card-title">' + obj.Name + '</h5> <p>Số lượng câu hỏi: <span>' + obj.NumberQuestions + '</span></p> <p>Thời gian làm bài: <span>' + obj.MaxTestTime + ' phút</span></p> <p>Loại kỳ thi: <span>' + obj.IsLearnString + ' </span></p> <a class="btn btn-light" href="/ky-thi/' + obj.NameUrl + '-' + obj.Id + '">Chi tiết</a> </div> </div> </div>';
+                });
+                $('#list-ky-thi-content').append(appendDiv);
+                if (data.length < 15) {
+                    $('.show-more').hide();
+                } else {
+                    $('.show-more').show();
+                }
+                if ($('#list-ky-thi-content').text() == '') {
+                    $('#list-ky-thi-content').append('<div class="col-12 text-center"><h3 class="home-title-content" style="margin:20px 0; font-size: 14px">Chưa có kỳ thi nào diễn ra</h3></div>');
+                    if (_sbc == '' && _sjc == '') {
+                        $('.title-page').hide();
+                        $('.exam-filter').hide();
+                    }
+                } else {
+                    $('.title-page').show();
+                    $('.exam-filter').show();
+                }
+            }
+        });
+        _page++;
+    };
+
+    function LoadRanking() {
+        var examId = $('#exam-rank-select').val();
+        examId = null; //this case for disable ranking
+        if (examId == null || examId == '') {
+            $('#list-test-score').html('<div class="col-12" style="margin-bottom:20px"><h3 style="color:#0b4b79; padding:0; margin:0; margin-top:20px; font-size:15px;font-weight: 500;line-height: 1.32; text-align:center">Chưa có dữ liệu</h3></div>');
+            return;
+        }
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "/Home/TestScoreRank?examId=" + examId,
+            success: function (data) {
+                $('#list-test-score').html(data);
+            },
+            error: function () {
+                $('#list-test-score').html('<div class="col-12" style="margin-bottom:20px"><h3 style="color:#0b4b79; padding:0; margin:0; margin-top:20px; font-size:15px;font-weight: 500;line-height: 1.32; text-align:center">Chưa có dữ liệu</h3></div>');
+            }
+        });
+    };
+
+</script>
+
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-157581584-1');
+</script>
+
+
+<div class="offline-ui offline-ui-up">
+    <div class="offline-ui-content"></div>
+    <a href="http://study.hanoi.edu.vn/" class="offline-ui-retry"></a>
+</div>
+<div style="position: absolute; width: 0px; height: 0px; overflow: scroll; padding: 0px; border: 0px; margin: 0px;">
+    <div id="MathJax_Font_Test"
+         style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; min-width: 0px; max-width: none; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Size1, sans-serif;">
+    </div>
+</div>
+</body>
+
+</html>
+<!DOCTYPE html>
+
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Hệ thi trực tuyến OnlineTest</title>
+    <link rel="icon" href="#1e5c8b">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" href="offline-theme-default.css">
+    <link rel="stylesheet" href="offline-language-vi.css">
+    <link rel="stylesheet" href="site.css">
+    <style>
+
+
+
+        @media all and (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+
+        }
+
+
+        .swal2-popup.swal2-toast :focus {
+            box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(50, 100, 150, .4)
+        }
+
+
+        .swal2-container.swal2-bottom-end > :first-child,
+        .swal2-container.swal2-bottom-left > :first-child,
+        .swal2-container.swal2-bottom-right > :first-child,
+        .swal2-container.swal2-bottom-start > :first-child,
+        .swal2-container.swal2-bottom > :first-child {
+            margin-top: auto
+        }
+
+
+        .swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen) > .swal2-modal {
+            margin: auto
+        }
+
+        @media all and (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+
+        }
+
+
+        .swal2-actions:not(.swal2-loading) :hover {
+            background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1))
+        }
+
+        .swal2-actions:not(.swal2-loading) :active {
+            background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2))
+        }
+
+
+        .swal2-actions.swal2-loading :not(.swal2-styled)::after {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-left: 5px;
+            -webkit-animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+            animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+            border: 3px solid #999;
+            border-radius: 50%;
+            border-right-color: transparent;
+            box-shadow: 1px 1px 1px #fff
+        }
+
+
+        .swal2-range input {
+            width: 80%
+        }
+
+        .swal2-range output {
+            width: 20%;
+            color: inherit;
+            font-weight: 600;
+            text-align: center
+        }
+
+        .swal2-range input,
+        .swal2-range output {
+            height: 2.625em;
+            padding: 0;
+            font-size: 1.125em;
+            line-height: 2.625em
+        }
+
+
+        .swal2-checkbox label,
+        .swal2-radio label {
+            margin: 0 .6em;
+            font-size: 1.125em
+        }
+
+        .swal2-checkbox input,
+        .swal2-radio input {
+            margin: 0 .4em
+        }
+
+
+        .swal2-progress-steps li {
+            display: inline-block;
+            position: relative
+        }
+
+        .
+        .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ {
+            background: #add8e6;
+            color: #fff
+        }
+
+        .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ {
+            background: #add8e6
+        }
+
+
+        @supports (-ms-accelerator:true) {
+            .swal2-range input {
+                width: 100% !important
+            }
+
+            .swal2-range output {
+                display: none
+            }
+        }
+
+        @media all and (-ms-high-contrast: none),
+        (-ms-high-contrast: active) {
+            .swal2-range input {
+                width: 100% !important
+            }
+
+            .swal2-range output {
+                display: none
+            }
+        }
+
+        @-webkit-keyframes swal2-toast-show {
+            0% {
+                transform: translateY(-.625em) rotateZ(2deg)
+            }
+
+            33% {
+                transform: translateY(0) rotateZ(-2deg)
+            }
+
+            66% {
+                transform: translateY(.3125em) rotateZ(2deg)
+            }
+
+            100% {
+                transform: translateY(0) rotateZ(0)
+            }
+        }
+
+        @keyframes swal2-toast-show {
+            0% {
+                transform: translateY(-.625em) rotateZ(2deg)
+            }
+
+            33% {
+                transform: translateY(0) rotateZ(-2deg)
+            }
+
+            66% {
+                transform: translateY(.3125em) rotateZ(2deg)
+            }
+
+            100% {
+                transform: translateY(0) rotateZ(0)
+            }
+        }
+
+        @-webkit-keyframes swal2-toast-hide {
+            100% {
+                transform: rotateZ(1deg);
+                opacity: 0
+            }
+        }
+
+        @keyframes swal2-toast-hide {
+            100% {
+                transform: rotateZ(1deg);
+                opacity: 0
+            }
+        }
+
+        @-webkit-keyframes swal2-toast-animate-success-line-tip {
+            0% {
+                top: .5625em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: .125em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: .625em;
+                left: -.25em;
+                width: 1.625em
+            }
+
+            84% {
+                top: 1.0625em;
+                left: .75em;
+                width: .5em
+            }
+
+            100% {
+                top: 1.125em;
+                left: .1875em;
+                width: .75em
+            }
+        }
+
+        @keyframes swal2-toast-animate-success-line-tip {
+            0% {
+                top: .5625em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: .125em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: .625em;
+                left: -.25em;
+                width: 1.625em
+            }
+
+            84% {
+                top: 1.0625em;
+                left: .75em;
+                width: .5em
+            }
+
+            100% {
+                top: 1.125em;
+                left: .1875em;
+                width: .75em
+            }
+        }
+
+        @-webkit-keyframes swal2-toast-animate-success-line-long {
+            0% {
+                top: 1.625em;
+                right: 1.375em;
+                width: 0
+            }
+
+            65% {
+                top: 1.25em;
+                right: .9375em;
+                width: 0
+            }
+
+            84% {
+                top: .9375em;
+                right: 0;
+                width: 1.125em
+            }
+
+            100% {
+                top: .9375em;
+                right: .1875em;
+                width: 1.375em
+            }
+        }
+
+        @keyframes swal2-toast-animate-success-line-long {
+            0% {
+                top: 1.625em;
+                right: 1.375em;
+                width: 0
+            }
+
+            65% {
+                top: 1.25em;
+                right: .9375em;
+                width: 0
+            }
+
+            84% {
+                top: .9375em;
+                right: 0;
+                width: 1.125em
+            }
+
+            100% {
+                top: .9375em;
+                right: .1875em;
+                width: 1.375em
+            }
+        }
+
+        @-webkit-keyframes swal2-show {
+            0% {
+                transform: scale(.7)
+            }
+
+            45% {
+                transform: scale(1.05)
+            }
+
+            80% {
+                transform: scale(.95)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        @keyframes swal2-show {
+            0% {
+                transform: scale(.7)
+            }
+
+            45% {
+                transform: scale(1.05)
+            }
+
+            80% {
+                transform: scale(.95)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        @-webkit-keyframes swal2-hide {
+            0% {
+                transform: scale(1);
+                opacity: 1
+            }
+
+            100% {
+                transform: scale(.5);
+                opacity: 0
+            }
+        }
+
+        @keyframes swal2-hide {
+            0% {
+                transform: scale(1);
+                opacity: 1
+            }
+
+            100% {
+                transform: scale(.5);
+                opacity: 0
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-success-line-tip {
+            0% {
+                top: 1.1875em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: 1.0625em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: 2.1875em;
+                left: -.375em;
+                width: 3.125em
+            }
+
+            84% {
+                top: 3em;
+                left: 1.3125em;
+                width: 1.0625em
+            }
+
+            100% {
+                top: 2.8125em;
+                left: .8125em;
+                width: 1.5625em
+            }
+        }
+
+        @keyframes swal2-animate-success-line-tip {
+            0% {
+                top: 1.1875em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: 1.0625em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: 2.1875em;
+                left: -.375em;
+                width: 3.125em
+            }
+
+            84% {
+                top: 3em;
+                left: 1.3125em;
+                width: 1.0625em
+            }
+
+            100% {
+                top: 2.8125em;
+                left: .8125em;
+                width: 1.5625em
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-success-line-long {
+            0% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            65% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            84% {
+                top: 2.1875em;
+                right: 0;
+                width: 3.4375em
+            }
+
+            100% {
+                top: 2.375em;
+                right: .5em;
+                width: 2.9375em
+            }
+        }
+
+        @keyframes swal2-animate-success-line-long {
+            0% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            65% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            84% {
+                top: 2.1875em;
+                right: 0;
+                width: 3.4375em
+            }
+
+            100% {
+                top: 2.375em;
+                right: .5em;
+                width: 2.9375em
+            }
+        }
+
+        @-webkit-keyframes swal2-rotate-success-circular-line {
+            0% {
+                transform: rotate(-45deg)
+            }
+
+            5% {
+                transform: rotate(-45deg)
+            }
+
+            12% {
+                transform: rotate(-405deg)
+            }
+
+            100% {
+                transform: rotate(-405deg)
+            }
+        }
+
+        @keyframes swal2-rotate-success-circular-line {
+            0% {
+                transform: rotate(-45deg)
+            }
+
+            5% {
+                transform: rotate(-45deg)
+            }
+
+            12% {
+                transform: rotate(-405deg)
+            }
+
+            100% {
+                transform: rotate(-405deg)
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-error-x-mark {
+            0% {
+                margin-top: 1.625em;
+                transform: scale(.4);
+                opacity: 0
+            }
+
+            50% {
+                margin-top: 1.625em;
+                transform: scale(.4);
+                opacity: 0
+            }
+
+            80% {
+                margin-top: -.375em;
+                transform: scale(1.15)
+            }
+
+            100% {
+                margin-top: 0;
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        @keyframes swal2-animate-error-x-mark {
+            0% {
+                margin-top: 1.625em;
+                transform: scale(.4);
+                opacity: 0
+            }
+
+            50% {
+                margin-top: 1.625em;
+                transform: scale(.4);
+                opacity: 0
+            }
+
+            80% {
+                margin-top: -.375em;
+                transform: scale(1.15)
+            }
+
+            100% {
+                margin-top: 0;
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-error-icon {
+            0% {
+                transform: rotateX(100deg);
+                opacity: 0
+            }
+
+            100% {
+                transform: rotateX(0);
+                opacity: 1
+            }
+        }
+
+        @keyframes swal2-animate-error-icon {
+            0% {
+                transform: rotateX(100deg);
+                opacity: 0
+            }
+
+            100% {
+                transform: rotateX(0);
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes swal2-rotate-loading {
+            0% {
+                transform: rotate(0)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes swal2-rotate-loading {
+            0% {
+                transform: rotate(0)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        body:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
+            overflow: scroll;
+        }
+
+        body{
+            height: auto !important
+
+        }
+
+
+
+        @media print {
+            body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
+                overflow-y: scroll !important
+            }
+
+            body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) > [aria-hidden=true] {
+                display: none
+            }
+
+            body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container {
+                position: static !important
+            }
+        }
+
+
+    </style>
+    <style type="text/css">
+
+
+
+
+        .MathJax_Menu_Button .MathJax_Hover_Arrow span {
+            display: block;
+            background-color: #AAA;
+            border: 1px solid;
+            border-radius: 3px;
+            line-height: 0;
+            padding: 4px
+        }
+
+
+
+        .MathJax_Hover_Arrow:hover span {
+            background-color: #CCC !important
+        }
+    </style>
+    <style type="text/css">
+
+        .MathJax_ContextMenu :focus {
+            outline: none
+        }
+
+
+
+
+
+        .MathJax_MenuClose span {
+            display: block;
+            background-color: #AAA;
+            border: 1.5px solid;
+            border-radius: 18px;
+            -webkit-border-radius: 18px;
+            -moz-border-radius: 18px;
+            -khtml-border-radius: 18px;
+            line-height: 0;
+            padding: 8px 0 6px
+        }
+
+
+
+        .MathJax_MenuClose:hover span {
+            background-color: #CCC !important
+        }
+
+
+    </style>
+
+    <script type="text/javascript" async="" src="analytics.js.tải xuống"></script>
+    <style type="text/css">
+
+        .MJXp-math span {
+            display: inline-block
+        }
+
+
+
+        .MJXp-denom > * {
+            display: table-row !important
+        }
+
+
+
+        .MJXp-surd > * {
+            display: block !important
+        }
+
+        .MJXp-script-box > * {
+            display: table !important;
+            height: 50%
+        }
+
+        .MJXp-script-box > * > * {
+            display: table-cell !important;
+            vertical-align: top
+        }
+
+        .MJXp-script-box > *:last-child > * {
+            vertical-align: bottom
+        }
+
+        .MJXp-script-box > * > * > * {
+            display: block !important
+        }
+
+
+
+
+
+
+        .MJXp-over > * {
+            display: block !important
+        }
+
+        .MJXp-munderover > *,
+        .MJXp-munder > * {
+            display: table-row !important
+        }
+
+        .MJXp-mtable > * {
+            display: inline-table !important;
+            vertical-align: middle
+        }
+
+
+
+        .MJXp-mtr > :first-child {
+            padding-left: 0
+        }
+
+        .MJXp-mtr:first-child > {
+            padding-top: 0
+        }
+
+
+        .MJXp-mlabeledtr > :first-child {
+            padding-left: 0
+        }
+
+        .MJXp-mlabeledtr:first-child > {
+            padding-top: 0
+        }
+
+    </style>
+    <style type="text/css">
+
+        .MathJax img,
+        .MathJax nobr,
+        .MathJax a {
+            border: 0;
+            padding: 0;
+            margin: 0;
+            max-width: none;
+            max-height: none;
+            min-width: 0;
+            min-height: 0;
+            vertical-align: 0;
+            line-height: normal;
+            text-decoration: none
+        }
+
+
+        .MathJax span {
+            display: inline;
+            position: static;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            vertical-align: 0;
+            line-height: normal;
+            text-decoration: none;
+            box-sizing: content-box
+        }
+
+        .MathJax nobr {
+            white-space: nowrap !important
+        }
+
+        .MathJax img {
+            display: inline !important;
+            float: none !important
+        }
+
+        .MathJax * {
+            transition: none;
+            -webkit-transition: none;
+            -moz-transition: none;
+            -ms-transition: none;
+            -o-transition: none
+        }
+
+        .MathJax .MathJax_HitBox * {
+            filter: none;
+            opacity: 1;
+            background: transparent
+        }
+
+        #MathJax_Tooltip * {
+            filter: none;
+            opacity: 1;
+            background: transparent
+        }
+
+        @font-face {
+            font-family: MathJax_Main;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Main-bold;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Main-italic;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Math-italic;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Caligraphic;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Size1;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Size2;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Size3;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.8') format('opentype')
+        }
+
+        @font-face {
+            font-family: MathJax_Size4;
+            src: url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.8') format('woff'), url('http://study.hanoi.edu.vn/lib/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.8') format('opentype')
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div style="min-height:67px; background-image:linear-gradient(to top, #dbdbdb, #ffffff);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="{{url('/')}}" style="text-decoration:none">
+                        <img src="logo.jpg" alt="Logo"
+                             style="float:left; margin-right:10px; min-height:45px; margin-top:10px; height:70px; width:70px; border-radius: 50%; ">
+
+                        <h3 class="top-header-caption" style="margin: 30px;">Hệ thống thi trực tuyến OnlineTest</h3>
+                    </a>
+                </div>
+                <div class="col-md-4 text-right" style="margin-bottom:10px">
+                    <a href="{{ route('login') }}"
+                       style="margin-top:13px;margin-bottom:10px; border-radius:5px; background-color:#124e7a; border-color:#124e7a; color:#fff; font-size:17px"
+                       class="btn btn-primary sign-in-pc">
+                        <i class="fas fa-user-circle" style="color:#fff; margin-right:5px"></i> Đăng nhập
+                    </a>
+
+                </div>
+                <div class="col-md-2 text-center" style="margin-bottom:10px">
+                    <a href="{{ route('register') }}"
+                       style="margin-top:13px;margin-bottom:10px; border-radius:5px; background-color:#124e7a; border-color:#124e7a; color:#fff; font-size:17px"
+                       class="btn btn-primary sign-in-pc">
+                        <i class="far fa-user-circle" style="color:#fff; margin-right:5px"></i> Đăng ký
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav id="main-nav"
+         class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light border-bottom box-shadow mb-3">
+        <div class="container">
+
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item show-on-mobile-f active">
+                        <a class="nav-link" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Lớp của bạn</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Giáo viên</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Giới
+                            thiệu</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Hướng
+                            dẫn</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Tin tức</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div style="background-color:#f5f5f6; padding-bottom:50px;">
+    <div class="container">
+        <div class="col-12">
+            <div class="row">
+                <div class="mainkt col-lg-12 col-xl-8">
+
+                    <div class="row" style="margin-top:20px" id="list-ky-thi-content">
+                        @foreach($rooms as $room)
+                        <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up">
+                            <div class="card">
+                                <div class="card-body lear-item">
+                                    <div style="height: 250px; width: 100%">
+                                        <img width="100%" src="{{ URL::to('storage/'.$room->avatar) }}" height="100%" >
+                                    </div>
+
+                                    <p><label style="margin-top:10px;"><b>Lớp: {{$room->name}}</b></label></p>
+                                    <p>Loại lớp: <label>{{$room->type}} </label></p>
+                                    <p>Giáo viên: <span>{{$room->owner->name}}</span></p>
+                                    <p>Số lượng bài thi: <span>{{$room->createdExams->count()}}</span></p>
+
+
+                                    <a class="btn btn-light" href="#">Chi
+                                        tiết</a>
+
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+
+
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button class="btn btn-primary show-more" onclick="LoadMore()" style="">Xem
+                                Thêm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-xl-4 rank-col">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3 class="home-title-content" style="margin-bottom:20px">Lớp mới mở</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a href="#">
+                                        <img src="ly12.png" class="img-fluid"
+                                             style="float:left; margin-right:15px; max-width: 160px">
+                                        <p style="font-size: 15px;color: #333333;font-weight: bold;">
+                                            Lớp Laravel <br>
+                                            Loại lớp: Limit <br>
+                                            Giáo viên: Anh Huy <br>
+                                            Số bài thi: 0 <br>
+                                            <label
+                                                    style="font-size: 13px;color: #6d6d6d; margin-left:175px;">23/05/2020</label>
+                                        </p>
+
+                                    </a>
+
+                                    <hr style="float:left; margin-top:5px; width:100%">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a href="#">
+                                        <img src="Nguvan9_20200513.mp4_snapshot_00.26.808.jpg" class="img-fluid"
+                                             style="float:left; margin-right:15px; max-width: 160px">
+                                        <p style="font-size: 15px;color: #333333;font-weight: bold;">
+                                            Lớp Laravel <br>
+                                            Loại lớp: Limit <br>
+                                            Giáo viên: Anh Huy <br>
+                                            Số bài thi: 0 <br>
+                                            <label
+                                                    style="font-size: 13px;color: #6d6d6d; margin-left:175px;">23/05/2020</label>
+                                        </p>
+
+                                    </a>
+
+                                    <hr style="float:left; margin-top:5px; width:100%">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="padding-top:50px">
+    <h1
+            style="text-align:center; text-transform:uppercase;font-size: 21px;font-weight: bold;line-height: 0.86;color: #1d5d8b;">
+        tin tức - thông báo</h1>
+    <hr style="width:10%; margin:auto; border:1px solid #1d5d8b">
+    <div class="row" style="padding-top:50px">
+        <div class="col-xl-2dot4 col-lg-4 col-md-4" style="padding-bottom:10px; text-align:center">
+            <a class="text-center" href="#">
+                <img src="a83c2052-194d-4041-a3a1-0c95b22d7804VSTUDY.PNG" class="img-fluid m-auto">
+                <h3
+                        style="font-size: 15px;font-weight: bold;line-height: 1.43;color: #393b3e; margin-top:10px; text-align:left">
+                    HỆ THỐNG HỌC VÀ THI TRỰC TUYẾN HANOI-STUDY
+                </h3>
+            </a>
+            <p style="font-size: 13px;line-height: 1.38; color: #8c8c8c; text-align:left">Cập nhật: 14/05/2020 </p>
+        </div>
+        <div class="col-xl-2dot4 col-lg-4 col-md-4" style="padding-bottom:10px; text-align:center">
+            <a class="text-center" href="#">
+                <img src="a0312112-cd82-4dde-8484-3ad214e0f61b_Capture3.PNG" class="img-fluid m-auto">
+                <h3
+                        style="font-size: 15px;font-weight: bold;line-height: 1.43;color: #393b3e; margin-top:10px; text-align:left">
+                    Hướng dẫn sử dụng Hệ thống thi trắc nghiệm Thành Phố Hà Nội
+                </h3>
+            </a>
+            <p style="font-size: 13px;line-height: 1.38; color: #8c8c8c; text-align:left">Cập nhật: 06/02/2020 </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="space-footter" style="margin-bottom: 257.984px;">
+</div>
+<footer class="border-top footer text-muted" id="footerD">
+    <div class="text-center"
+         style="background-color:#f5f5f4; color:#124e7a; line-height:1.46; padding:15px 0px; font-size:13px">
+        <h4 style="text-transform:uppercase; font-size:15px; font-weight:bold">SỞ GIÁO DỤC VÀ ĐÀO TẠO THÀNH PHỐ HÀ
+            NỘI</h4>
+        Địa chỉ: 23 Quang Trung, 81 Thợ Nhuộm, Hoàn Kiếm, Hà Nội<br>
+        Điện thoại: 024.39347489 , Hotline: 1900 4740 ; Fax: 024.39423985<br>
+        Email: khcntt@hanoiedu.vn, gdtrunghoc@hanoiedu.vn
+    </div>
+    <div class="text-center border-top"
+         style="background-color:#1e5c8b; color:rgba(255, 255, 255, 0.8); padding:15px 5px; font-size:13px; font-weight:300">
+        2020 © All Rights Reserved - Hệ thống học và thi trực tuyến HanoiStudy (Version 3)<br>
+        Hỗ trợ trực tuyến <a style="color:#fff" target="_blank"
+                             href="https://ultraviewer.net/vi/download.html">UltraViewer</a> <br> <label
+            style="color:#fde581">Phiên
+        bản chạy thử nghiệm</label>
+    </div>
+    <div class="icontop" id="icontop" >
+        <a href="#top"><i class="fas fa-arrow-up gototop"></i></a>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+<script src="sweetalert2.all.min.js.tải xuống"></script>
+<script src="select2.js.tải xuống"></script>
+<script type="text/javascript" src="download2.js.tải xuống"></script>
+<script type="text/javascript" src="html2canvas.min.js.tải xuống"></script>
+<script type="text/javascript" src="offline.min.js.tải xuống"></script>
+<script  src="bootstrap.bundle.min.js.tải xuống"></script>
+<script src="jquery.min.js.tải xuống"></script>
+<script src="site.js.tải xuống"></script>
+<script>
+    $(function () {
+        $('#user-menu-logined').popover({
+            placement: "bottom",
+            html: true,
+            content: function () {
+                return $('.data-popover-userlogined').html();
+            }
+        });
+        $('body').on('click', function (e) {
+            if ($(e.target).data('toggle') !== 'popover'
+                && $(e.target).parents('.popover.in').length === 0) {
+                $('[data-toggle="popover"]').popover('hide');
+            }
+        });
+    });
+    $(".select2").select2();
+</script>
+
+<script>
+    var _page = 0;
+    var _slc = '03';
+    var _sbc = '';
+    var _sjc = '';
+    var _ctc = '';
+
+    $(function () {
+        LoadSelectSchoolBlock(_slc);
+        if ('False' == 'True') {
+            LoadSelectSubjects(_slc, _sbc);
+        }
+        LoadSelectExamRankChose(_slc);
+        LoadMore();
+        LoadRanking();
+
+        $("#school-block").change(function () {
+            _page = 0;
+            _sbc = this.value;
+            _ctc = '';
+            $('#list-ky-thi-content').html('');
+            var htmlMon = '<option value="">Chọn môn học</option>';
+            var htmlChuong = '<option value="">Chọn chương</option>';
+            $("#subjects").html(htmlMon);
+            $("#chapters").html(htmlChuong);
+            if (_sbc != "") {
+                LoadSelectSubjects(_slc, _sbc);
+                LoadSelectChapter(_slc, _sbc, _sjc);
+            }
+            LoadMore();
+        });
+        $("#subjects").change(function () {
+            _page = 0;
+            _sjc = this.value;
+            _ctc = '';
+            $('#list-ky-thi-content').html('');
+            LoadSelectChapter(_slc, _sbc, _sjc);
+            LoadMore();
+        });
+        $("#chapters").change(function () {
+            _page = 0;
+            _ctc = this.value;
+            $('#list-ky-thi-content').html('');
+            LoadMore();
+        });
+        $("#exam-rank-select").change(function () {
+            LoadRanking();
+        });
+    });
+
+    function ChangeSchoolLevel(slc) {
+        _slc = slc;
+        _page = 0;
+        _sbc = '';
+        _sjc = '';
+        _ctc = '';
+        LoadSelectSchoolBlock(_slc);
+        LoadSelectExamRankChose(_slc);
+        var htmlMon = '<option value="">Chọn môn học</option>';
+        var htmlChuong = '<option value="">Chọn chương</option>';
+        $("#subjects").html(htmlMon);
+        $("#chapters").html(htmlChuong);
+        $('#list-ky-thi-content').html('');
+        LoadMore();
+        if (0 > 0) {
+            LoadSelectSubjects(_slc, _sbc);
+        }
+    };
+
+    function LoadSelectSchoolBlock(slc) {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "/home/getselectschoolblocks?slc=" + slc,
+            dataType: "json",
+            success: function (data) {
+                var html = '<option value="">Chọn khối</option>';
+                $.each(data, function (i, obj) {
+                    html += "<option value=" + obj.Code + ">" + obj.Name + "</option>";
+                });
+                $('#school-block').html(html);
+            }
+        });
+    };
+
+    function LoadSelectSubjects(slc, sbc) {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "/home/getselectsubjectes?slc=" + slc + "&sbc=" + sbc,
+            dataType: "json",
+            success: function (data) {
+                var html = '<option value="">Chọn môn học</option>';
+                $.each(data, function (i, obj) {
+                    html += "<option value=" + obj.Code + ">" + obj.Name + "</option>";
+                });
+                $('#subjects').html(html);
+            }
+        });
+    };
+
+    function LoadSelectChapter(slc, sbc, sjc) {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "/home/getselectchapters?slc=" + slc + "&sbc=" + sbc + "&sjc=" + sjc,
+            dataType: "json",
+            success: function (data) {
+                var html = '<option value="">Chọn chương</option>';
+                $.each(data, function (i, obj) {
+                    html += "<option value=" + obj.Code + ">" + obj.Name + "</option>";
+                });
+                $('#chapters').html(html);
+            }
+        });
+    };
+
+    function LoadSelectExamRankChose(slc) {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "/home/getselectexamforchoserank?slc=" + slc,
+            dataType: "json",
+            success: function (data) {
+                var html = '';
+                $.each(data, function (i, obj) {
+                    html += "<option value=" + obj.Id + ">" + obj.Name + "</option>";
+                });
+                if (html == '') {
+                    $('.top-ranking-exam').hide();
+                } else {
+                    $('#exam-rank-select').html(html);
+                    LoadRanking();
+                    $('.top-ranking-exam').show();
+                }
+            }
+        });
+    };
+
+    function LoadMore() {
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "/home/getexamlisthome?page=" + _page + "&slc=" + _slc + "&sbc=" + _sbc + "&sjc=" + _sjc + "&ctc=" + _ctc,
+            dataType: "json",
+            success: function (data) {
+                var appendDiv = '';
+                $.each(data, function (i, obj) {
+                    appendDiv += '<div class="col-lg-4 col-md-6"> <div class="card"> <div class="card-body"> <h5 class="card-title">' + obj.Name + '</h5> <p>Số lượng câu hỏi: <span>' + obj.NumberQuestions + '</span></p> <p>Thời gian làm bài: <span>' + obj.MaxTestTime + ' phút</span></p> <p>Loại kỳ thi: <span>' + obj.IsLearnString + ' </span></p> <a class="btn btn-light" href="/ky-thi/' + obj.NameUrl + '-' + obj.Id + '">Chi tiết</a> </div> </div> </div>';
+                });
+                $('#list-ky-thi-content').append(appendDiv);
+                if (data.length < 15) {
+                    $('.show-more').hide();
+                } else {
+                    $('.show-more').show();
+                }
+                if ($('#list-ky-thi-content').text() == '') {
+                    $('#list-ky-thi-content').append('<div class="col-12 text-center"><h3 class="home-title-content" style="margin:20px 0; font-size: 14px">Chưa có kỳ thi nào diễn ra</h3></div>');
+                    if (_sbc == '' && _sjc == '') {
+                        $('.title-page').hide();
+                        $('.exam-filter').hide();
+                    }
+                } else {
+                    $('.title-page').show();
+                    $('.exam-filter').show();
+                }
+            }
+        });
+        _page++;
+    };
+
+    function LoadRanking() {
+        var examId = $('#exam-rank-select').val();
+        examId = null; //this case for disable ranking
+        if (examId == null || examId == '') {
+            $('#list-test-score').html('<div class="col-12" style="margin-bottom:20px"><h3 style="color:#0b4b79; padding:0; margin:0; margin-top:20px; font-size:15px;font-weight: 500;line-height: 1.32; text-align:center">Chưa có dữ liệu</h3></div>');
+            return;
+        }
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "/Home/TestScoreRank?examId=" + examId,
+            success: function (data) {
+                $('#list-test-score').html(data);
+            },
+            error: function () {
+                $('#list-test-score').html('<div class="col-12" style="margin-bottom:20px"><h3 style="color:#0b4b79; padding:0; margin:0; margin-top:20px; font-size:15px;font-weight: 500;line-height: 1.32; text-align:center">Chưa có dữ liệu</h3></div>');
+            }
+        });
+    };
+
+</script>
+
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-157581584-1');
+</script>
+
+
+<div class="offline-ui offline-ui-up">
+    <div class="offline-ui-content"></div>
+    <a href="http://study.hanoi.edu.vn/" class="offline-ui-retry"></a>
+</div>
+<div style="position: absolute; width: 0px; height: 0px; overflow: scroll; padding: 0px; border: 0px; margin: 0px;">
+    <div id="MathJax_Font_Test"
+         style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; min-width: 0px; max-width: none; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Size1, sans-serif;">
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+.btn-search {
+  padding: 8px;
+  background-color: #047ce4;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+#input-search {
+  border-radius: 0;
+}
+
+.profile-imagebackground {
+  position: absolute;
+  height: 528px;
+  width: 100%;
+  background-size: cover;
+  background-image: url("https://s3.amazonaws.com/coursera_assets/growth_account_profile/account_bg_black2.png");
+  /* margin-bottom: 50px; */
+}
+
+.profile-image {
+  width: 144px;
+  height: 144px;
+  border-radius: 72px;
+  position: relative;
+  background: #42afd8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modify-profile {
+  background-color: #fff;
+  margin-top: 140px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.image-text-container {
+  position: relative;
+  min-height: 1px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  margin-left: 30px;
+}
+
+.bt3-col-sm-8 {
+  width: 66.6666666666667%;
+}
+
+.bt3-col-sm-2 {
+  margin-right: 25px;
+}
+
+._li0s4s2 {
+  height: 70px;
+  line-height: 1rem;
+  user-select: none;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-image: none;
+  cursor: pointer;
+  filter: none;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  background-color: rgb(42, 115, 204);
+  font-size: 1rem;
+  min-height: 48px;
+  border-radius: 2px;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  text-decoration: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(42, 115, 204);
+  border-image: initial;
+  padding: 0.9rem 2rem;
+}
+
+.edit-image {
+  margin-right: 40px;
+  width: 44px;
+  height: 48px;
+}
+
+.btn_edit {
+  line-height: 1rem;
+  user-select: none;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-image: none;
+  cursor: pointer;
+  filter: none;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  background-color: rgb(42, 115, 204);
+  font-size: 1rem;
+  min-height: 48px;
+  margin: 42px;
+  border-radius: 2px;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  text-decoration: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(42, 115, 204);
+  border-image: initial;
+  padding: 0.9rem 2rem;
+}
+
+.profile-footer {
+  margin: 50px 0;
+
+  border-top: 1px solid #e4e4e4;
+
+  padding-top: 50px;
+}
+
+.column_container {
+  max-width: 170px;
+}
+
+.column_header {
+  font-family: OpenSans, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  max-width: 100%;
+  line-height: 1.5rem;
+}
+
+.column_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.column_list_item {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+.column_list_item_link {
+  color: inherit;
+}
+.column_list_item_link:hover {
+  color: black;
+}

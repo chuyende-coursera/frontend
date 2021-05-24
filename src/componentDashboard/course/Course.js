@@ -135,19 +135,17 @@ class CourseDash extends React.Component {
         title: "Hành động",
         dataIndex: "operation",
         render: (text, record) => {
-          console.log("record: ", record);
           return this.state.dataSource.length >= 1 ? (
             <Space size="middle">
+              <Button>
+                <Link to={`courses/update/${record.key}`}>Cập nhật</Link>
+              </Button>
               <Popconfirm
-                title="Sure to delete?"
+                title="Chắc chắn xóa?"
                 onConfirm={() => this.handleDelete(record.key)}
               >
-                <Link to="">Xóa</Link>
+                <Button danger>Xóa</Button>
               </Popconfirm>
-
-              <Button>
-                <Link to={`courses/${record.key}`}>Cập nhật</Link>
-              </Button>
             </Space>
           ) : null;
         },
@@ -160,7 +158,6 @@ class CourseDash extends React.Component {
   }
 
   componentDidMount() {
-    console.log("props did: ", this.props);
     this.props.requestCoursesDash();
   }
 
@@ -181,36 +178,13 @@ class CourseDash extends React.Component {
     }
   }
 
-  // handleDelete = (key) => {
-  //   const dataSource = [...this.state.dataSource];
-  //   this.setState({
-  //     dataSource: dataSource.filter((item) => item.key !== key),
-  //   });
-  // };
-
-  // handleAdd = () => {
-  //   const { count, dataSource } = this.props;
-  //   const newData = {
-  //     key: count,
-  //     name: `Edward King ${count}`,
-  //     age: 32,
-  //     address: `London, Park Lane no. ${count}`,
-  //   };
-  //   this.setState({
-  //     dataSource: [...dataSource, newData],
-  //     count: count + 1,
-  //   });
-  // };
-
-  // handleSave = (row) => {
-  //   const newData = [...this.state.dataSource];
-  //   const index = newData.findIndex((item) => row.key === item.key);
-  //   const item = newData[index];
-  //   newData.splice(index, 1, { ...item, ...row });
-  //   this.setState({
-  //     dataSource: newData,
-  //   });
-  // };
+  handleDelete = (key) => {
+    const dataSource = [...this.state.dataSource];
+    this.props.deleteCourses(key);
+    this.setState({
+      dataSource: dataSource.filter((item) => item.key !== key),
+    });
+  };
 
   render() {
     const { dataSource } = this.state;

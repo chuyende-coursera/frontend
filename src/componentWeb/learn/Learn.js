@@ -12,14 +12,17 @@ const Learn = (props) => {
   const [course, setCourse] = useState({});
   const [videoUrl, setVideoUrl] = useState("");
 
-  if (Object.keys(props.course).length !== Object.keys(course).length) {
-    setCourse(props.course);
-  }
   const id = (location && location.state && location.state.courseId) || 0;
 
   useEffect(() => {
     requestCourseDetail(id);
   }, [requestCourseDetail]);
+
+  useEffect(() => {
+    if (Object.keys(props.course).length > 0) {
+      setCourse(props.course);
+    }
+  }, [props.course]);
 
   return (
     <Layout>
@@ -31,11 +34,10 @@ const Learn = (props) => {
           style={{ height: "100%", borderRight: 0 }}
         >
           {Object.keys(course).length > 0 &&
-            course.courseWeeks.map((courseWeek) => {
-              console.log("courseWeek: ", courseWeek);
+            course.weeks.map((week) => {
               return (
-                <SubMenu key={courseWeek.id} title={courseWeek.weeks.header}>
-                  {courseWeek.weeks.videoWeek.map((video) => (
+                <SubMenu key={week.id} title={week.header}>
+                  {week.videoWeek.map((video) => (
                     <Menu.Item
                       onClick={() => setVideoUrl(video.videoUrl)}
                       key={video.id}

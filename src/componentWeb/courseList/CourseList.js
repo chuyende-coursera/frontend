@@ -2,7 +2,9 @@
 import React, { Component, Fragment } from "react";
 import CourseItem from "../courseItem/CourseItem";
 import { Row } from "antd";
+import "./courseList.css";
 import Filter from "../filter/Filter";
+import FooterCourse from "../footer/FooterCourse";
 class CourseList extends Component {
   state = {
     courses: [],
@@ -91,13 +93,15 @@ class CourseList extends Component {
           topics={topics}
           handleChangeFilter={this.state.handleChangeFilter}
         />
-        <div className="site-card-wrapper container">
+        <div className="site-card-wrapper container mt-4 minHei">
           <Row gutter={16}>
-            {this.state.courses.map((course) => (
-              <CourseItem key={course.id} course={course} />
-            ))}
+            {Array.isArray(this.state.courses) &&
+              this.state.courses.map((course) => (
+                <CourseItem key={course.id} course={course} />
+              ))}
           </Row>
         </div>
+        <FooterCourse />
       </Fragment>
     );
   }

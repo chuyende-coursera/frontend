@@ -3,7 +3,6 @@ import React from "react";
 import "antd/dist/antd.css";
 import "./login.css";
 import viMessage from "../../locales/vi";
-// import { history } from "../../store/history";
 import { Form, Input, Button, Checkbox } from "antd";
 import { Link } from "react-router-dom";
 

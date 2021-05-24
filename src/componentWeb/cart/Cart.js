@@ -1,43 +1,50 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { List, Avatar, Button, notification } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
+import FooterCourse from "../footer/FooterCourse";
 
-let listData = [];
-let costOfCart = 0;
 function Cart({
   requestUserCourse,
   userCourse,
-  requestBuyCourse,
+  currentUser,
   requestDeleteUserCourse,
   requestUpdateUserCourseByUserId,
   requestCurrentUser,
-  currentUser,
 }) {
-  console.log("userCourse: ", userCourse);
-  console.log("currentUser: ", currentUser);
+  const [listData, setListData] = useState([]);
+  const [costOfCart, setCostOfCart] = useState(0);
 
-  userCourse.forEach((element) => {
-    costOfCart += parseInt(element.courses.cost);
-    listData.push({
-      title: element.courses.title,
-      avatar:
-        "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
-      description: "Gía khóa học: " + element.courses.cost + "$",
-      id: element.id,
-      // content:
-      //   "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
-    });
-  });
-
-  const deleteBuyCourse = (id) => {
-    console.log("id: ", id);
-    listData = listData.filter((data) => data.id !== id);
-    console.log("listData: ", listData);
-  };
   useEffect(() => {
     requestCurrentUser();
-    requestUserCourse({ status: 0 });
-  }, [requestUserCourse, requestCurrentUser]);
+  }, [requestCurrentUser]);
+
+  useEffect(() => {
+    console.log("currentUser: ", currentUser);
+    if (Object.keys(currentUser).length > 0) {
+      requestUserCourse({ usersId: currentUser.id, status: 0 });
+    }
+  }, [requestUserCourse, currentUser]);
+
+  useEffect(() => {
+    const data = [];
+    let tempCostOfCart = 0;
+    userCourse.forEach((element) => {
+      tempCostOfCart += parseInt(element.courses.cost);
+      data.push({
+        title: element.courses.title,
+        avatar:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        description: "Gía khóa học: " + element.courses.cost + "$",
+        id: element.id,
+        // content:
+        //   "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
+      });
+    });
+    setCostOfCart(tempCostOfCart);
+    setListData(data);
+  }, [userCourse]);
+
+  console.log("userCourse: ", userCourse);
 
   return (
     <div className="container">
@@ -97,6 +104,7 @@ function Cart({
           </List.Item>
         )}
       />
+      <FooterCourse />
     </div>
   );
 }

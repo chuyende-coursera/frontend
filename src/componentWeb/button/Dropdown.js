@@ -3,14 +3,11 @@ import React, { Fragment } from "react";
 import "antd/dist/antd.css";
 
 // import './index.css';
-import { Menu } from "antd";
+import { Menu, Button } from "antd";
 import { Link } from "react-router-dom";
 import parseUrI from "../../utils/parseUrI";
 const { SubMenu } = Menu;
 
-function handleClick(e) {
-  "click", e;
-}
 function Dropdown({ topics }) {
   return (
     <Fragment>
@@ -60,6 +57,9 @@ function Dropdown({ topics }) {
               </SubMenu>
             ))}
           </Menu>
+          <Button type="primary" block>
+            <a href="/browser">Khám phá tất cả</a>
+          </Button>
         </div>
       </div>
     </Fragment>

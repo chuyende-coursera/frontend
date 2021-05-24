@@ -3,7 +3,8 @@ import "antd/dist/antd.css";
 import viMessage from "../../locales/vi";
 import * as actionTypes from "../../actions/actionTypes";
 import cookie from "js-cookie";
-import axios from "axios";
+import history from "../../store/history";
+
 import {
   Upload,
   Form,
@@ -37,10 +38,10 @@ const normFile = (e) => {
 const formItemLayout = {
   labelCol: {
     xs: {
-      span: 4,
+      span: 24,
     },
     sm: {
-      span: 0,
+      span: 4,
     },
   },
   wrapperCol: {
@@ -48,7 +49,7 @@ const formItemLayout = {
       span: 24,
     },
     sm: {
-      span: 24,
+      span: 16,
     },
   },
 };
@@ -85,10 +86,12 @@ function AddWeek(props) {
           };
         })
       : [];
+    console.log("value: ", values);
     requestCreateWeeksDash(values);
   };
 
   const dummyRequest = (file) => {
+    console.log("file: ", file);
     const formData = new FormData();
 
     formData.append("myFiles", file.file);
@@ -101,12 +104,21 @@ function AddWeek(props) {
     })
       .then(async (res) => {
         const result = await res.json();
-        pathName.push(result.path);
-        console.log("pathName: ", pathName);
-        notification["success"]({
-          message: "Upload file thành công!",
-          description: "",
-        });
+        console.log("result: ", result);
+        if (!result.hasOwnProperty("error")) {
+          pathName.push(result.path);
+          console.log("pathName: ", pathName);
+          notification["success"]({
+            message: "Upload file thành công!",
+            description: "",
+          });
+        } else {
+          notification["error"]({
+            message: "Upload file thất bại!",
+            description: "",
+          });
+          pathName.pop();
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -121,7 +133,7 @@ function AddWeek(props) {
 
   return (
     <div className="container mt-4 pr-4">
-      <h3>Thêm Tuần Học</h3>
+      <h3 className="text-center">Thêm Mới Tuần Học</h3>
       <Form
         {...formItemLayout}
         form={form}
@@ -129,23 +141,6 @@ function AddWeek(props) {
         onFinish={onFinish}
         scrollToFirstError
       >
-        <Form.Item
-          name="timeComplete"
-          label="Thời gian học của tuần"
-          rules={[
-            {
-              type: "integer",
-              message: viMessage["app.weeks.validate.timeComplete"],
-            },
-            {
-              required: true,
-              message: viMessage["app.weeks.timeComplete"],
-            },
-          ]}
-        >
-          <InputNumber />
-        </Form.Item>
-
         <Form.Item
           name="header"
           label="Tiêu Đề"
@@ -181,6 +176,23 @@ function AddWeek(props) {
         </Form.Item>
 
         <Form.Item
+          name="timeComplete"
+          label="Thời gian học của tuần"
+          rules={[
+            {
+              type: "integer",
+              message: viMessage["app.weeks.validate.timeComplete"],
+            },
+            {
+              required: true,
+              message: viMessage["app.weeks.timeComplete"],
+            },
+          ]}
+        >
+          <InputNumber />
+        </Form.Item>
+
+        <Form.Item
           name="coursesId"
           label="Khóa học"
           rules={[
@@ -210,12 +222,29 @@ function AddWeek(props) {
           </Select>
         </Form.Item>
 
+        <Form.Item
+          name="numberWeek"
+          label="Số thự tự tuần"
+          rules={[
+            {
+              type: "integer",
+              message: viMessage["app.weeks.validate.numberWeek"],
+            },
+            {
+              required: true,
+              message: viMessage["app.weeks.numberWeek"],
+            },
+          ]}
+        >
+          <InputNumber />
+        </Form.Item>
+
         <Form.List name="videoWeeks">
           {(fields, { add, remove }) => {
             return (
-              <Row className="ml-3">
+              <Row className="ml-3 mb-3" style={{ paddingLeft: "167px" }}>
                 {fields.map((field, index) => (
-                  <Col span={6} key={field.key}>
+                  <Col span={4} key={field.key}>
                     <Form.Item name={[field.name, "videoHeader"]}>
                       <Input
                         placeholder="Tiêu Đề Video"
@@ -235,12 +264,12 @@ function AddWeek(props) {
 
                     <Form.Item name={[field.name, "videoUrl"]}>
                       <Upload
-                        style={{ width: "80%" }}
+                        style={{ width: "30%" }}
                         name="myFiles"
                         customRequest={dummyRequest}
                       >
                         <Button>
-                          <UploadOutlined /> Upload Video
+                          <UploadOutlined />
                         </Button>
                       </Upload>
                     </Form.Item>
@@ -270,7 +299,14 @@ function AddWeek(props) {
         </Form.List>
         <Form.Item {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">
-            Add Week
+            Thêm tuần học
+          </Button>
+          <Button
+            className="ml-3"
+            type="outline"
+            onClick={() => history.goBack()}
+          >
+            Trở lại
           </Button>
         </Form.Item>
       </Form>

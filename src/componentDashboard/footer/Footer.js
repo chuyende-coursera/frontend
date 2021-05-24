@@ -5,11 +5,7 @@ import "antd/dist/antd.css";
 const { Footer } = Layout;
 
 const FooterDash = () => {
-  return (
-    <Footer style={{ textAlign: "center" }}>
-      Ant Design ©2018 Created by Ant UED
-    </Footer>
-  );
+  return <Footer style={{ textAlign: "center" }}>Design by Group 10</Footer>;
 };
 
 export default FooterDash;

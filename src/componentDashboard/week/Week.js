@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import "antd/dist/antd.css";
-import { Table, Input, Button, Popconfirm, Form } from "antd";
+import { Table, Input, Button, Popconfirm, Form, Space } from "antd";
 import { Link } from "react-router-dom";
 import ListVideoWeek from "../list/ListVideoWeek";
+import { PlusOutlined } from "@ant-design/icons";
+import AddVideoWeek from "./AddVideoWeek";
 const EditableContext = React.createContext();
-
 const EditableRow = ({ index, ...props }) => {
   const [form] = Form.useForm();
   return (
@@ -108,6 +109,12 @@ class WeekDash extends React.Component {
         editable: true,
       },
       {
+        title: "Số thứ tự tuần",
+        dataIndex: "numberWeek",
+        width: "15%",
+        editable: true,
+      },
+      {
         title: "Khóa học",
         dataIndex: "course",
         width: "25%",
@@ -116,31 +123,64 @@ class WeekDash extends React.Component {
       {
         title: "operation",
         dataIndex: "operation",
-        render: (text, record) =>
-          this.state.dataSource.length >= 1 ? (
-            <Popconfirm
-              title="Sure to delete?"
-              onConfirm={() => this.handleDelete(record.key)}
-            >
-              <Link to="">Delete</Link>
-            </Popconfirm>
-          ) : null,
+        render: (text, record) => {
+          return this.state.dataSource.length >= 1 ? (
+            <Space size="middle">
+              <Button
+                onClick={() => {
+                  this.setState({ visible: true, weeksId: record.key });
+                }}
+              >
+                <PlusOutlined />
+              </Button>
+              <AddVideoWeek
+                requestCreateVideoDash={this.props.requestCreateVideoDash}
+                visible={this.state.visible}
+                onCreate={this.onCreate}
+                weeksId={this.state.weeksId}
+                onCancel={() => {
+                  this.setState({
+                    visible: false,
+                  });
+                }}
+              />
+              <Button>
+                <Link to={`weeks/update/${record.key}`}>Cập nhật</Link>
+              </Button>
+
+              <Popconfirm
+                title="Chắc chắn xóa?"
+                onConfirm={() => this.handleDelete(record.key)}
+              >
+                <Button danger>Xóa</Button>
+              </Popconfirm>
+            </Space>
+          ) : null;
+        },
       },
     ];
     this.state = {
       dataSource: [],
       count: 0,
+      visible: false,
+      weeksId: null,
     };
   }
 
+  onCreate = (values) => {
+    console.log("Received values of form: ", values);
+    this.props.requestCreateVideoDash(values);
+    this.setState({
+      visible: false,
+    });
+  };
+
   componentDidMount() {
-    console.log("props did: ", this.props);
     this.props.requestWeeksDash();
     this.props.requestCoursesDash();
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("nextProps: ", nextProps);
     if (nextProps.weeks.length !== this.state.dataSource.length) {
       this.setState({
         dataSource: nextProps.weeks.map((week) => {
@@ -150,12 +190,9 @@ class WeekDash extends React.Component {
               timeComplete: week.timeComplete,
               header: week.header,
               description: week.description,
-              course:
-                (week.courseWeeks &&
-                  week.courseWeeks[0] &&
-                  week.courseWeeks[0].courses.title) ||
-                null,
+              course: (week.courses && week.courses.title) || "Không tồn tại",
               videoWeek: week.videoWeek,
+              numberWeek: week.numberWeek,
             };
           }
         }),
@@ -167,20 +204,6 @@ class WeekDash extends React.Component {
     const dataSource = [...this.state.dataSource];
     this.setState({
       dataSource: dataSource.filter((item) => item.key !== key),
-    });
-  };
-
-  handleAdd = () => {
-    const { count, dataSource } = this.props;
-    const newData = {
-      key: count,
-      name: `Edward King ${count}`,
-      age: 32,
-      address: `London, Park Lane no. ${count}`,
-    };
-    this.setState({
-      dataSource: [...dataSource, newData],
-      count: count + 1,
     });
   };
 
@@ -196,7 +219,6 @@ class WeekDash extends React.Component {
 
   render() {
     const { dataSource } = this.state;
-    console.log("dataSource: ", dataSource);
     const components = {
       body: {
         row: EditableRow,
@@ -234,7 +256,10 @@ class WeekDash extends React.Component {
           rowClassName={() => "editable-row"}
           expandable={{
             expandedRowRender: (record) => (
-              <ListVideoWeek videoWeek={record.videoWeek} />
+              <ListVideoWeek
+                videoWeek={record.videoWeek}
+                requestUpdateVideoDash={this.props.requestUpdateVideoDash}
+              />
             ),
           }}
           bordered

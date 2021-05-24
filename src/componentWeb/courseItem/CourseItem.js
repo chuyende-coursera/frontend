@@ -31,7 +31,17 @@ function CourseItem({ course }) {
               <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
             }
             title={course.title}
-            description={"This is the description - " + course.level}
+            description={
+              course.description +
+                <br /> +
+                " - Trình độ: " +
+                parseInt(course.level) ===
+              1
+                ? "Cở bản"
+                : parseInt(course.level) === 2
+                ? "Trung bình"
+                : "Nâng cao"
+            }
           />
         </Card>
       </Col>

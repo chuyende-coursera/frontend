@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
 import "./carousel.css";
 import { Carousel } from "antd";
@@ -19,15 +18,10 @@ const Carousels = () => {
               />
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-6 align-middle vertical-center">
             <div>
-              <h2>Learner outcomes on Coursera</h2>
-              <h3>
-                87% of people learning for professional development report
-                career benefits like getting a promotion, a raise, or starting a
-                new career
-              </h3>
               <div>
+                <h3>Your Course to success build skills</h3>
                 <button className="btn btn-primary mr-3">Join for Free</button>
                 <button className="btn btn-outline-primary">
                   Try Coursera for Bussiness
